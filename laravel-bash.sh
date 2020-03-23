@@ -12,8 +12,8 @@ read versi
 
 ## pindah ke direktori Ngoding tempat project laravel
 ## sesuaikan dengan lokasi project anda
-echo '\033[0;32m+ \033[0mPindah ke direktori Templates'
-cd $HOME/Templates
+echo '\033[0;32m+ \033[0mPindah ke direktori Webapps'
+cd $HOME/Templates/Webapps
 
 ## Periksa jika nama project yang dimasukkan sudah ada
 if [ -d $nama ]; then
@@ -36,8 +36,8 @@ echo '\033[0;32m+ \033[0mMenambahkan Aliases '"$nama"' ke httpd.conf'
 sudo tee -a /opt/lampp/etc/httpd.conf > /dev/null << EOT
 
 # $nama.test
-Alias /$nama "/home/ipulmisaja/Templates/$nama/"
-<Directory "/home/ipulmisaja/Templates/$nama/">
+Alias /$nama "/home/ipulmisaja/Templates/Webapps/$nama/"
+<Directory "/home/ipulmisaja/Templates/Webapps/$nama/">
 	AllowOverride All
 	Order allow,deny
 	Allow from all
@@ -52,7 +52,7 @@ sudo tee -a /opt/lampp/etc/extra/httpd-vhosts.conf > /dev/null << EOT
 # $nama.test
 <VirtualHost *:80>
     ServerAdmin webmaster@$nama.test
-    DocumentRoot "/home/ipulmisaja/Templates/$nama/public"
+    DocumentRoot "/home/ipulmisaja/Templates/Webapps/$nama/public"
     ServerName $nama.test
     ServerAlias www.$nama.test
     ErrorLog "logs/$nama.dev-error_log"
